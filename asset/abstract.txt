@@ -1,0 +1,7 @@
+Continual unlearning poses the challenge of enabling large vision-language models to selectively refuse specific imageinstruction pairs in response to sequential deletion requests,
+while preserving general utility. However, sequential unlearning updates distort shared representations, creating
+spurious associations between vision-language pairs and refusal behaviors that hinder precise identification of refusal targets, resulting in inappropriate refusals. To address
+this challenge, we propose a novel continual unlearning framework that grounds refusal behavior in fine-grained descriptions of visual and textual concepts decomposed from
+deletion targets. We first identify which visual-linguistic concept combinations characterize each forget category
+through a concept modulator, then determine how to generate appropriate refusal responses via a mixture of refusal experts, termed refusers, each specialized for conceptaligned refusal generation. To generate concept-specific refusal responses across sequential tasks, we introduce a multimodal, concept-driven routing scheme that reuses refusers
+for tasks sharing similar concepts and adapts underutilized ones for novel concepts. Extensive experiments on visionlanguage benchmarks demonstrate that the proposed framework outperforms existing methods by generating conceptgrounded refusal responses and preserving the general utility across unlearning sequences.

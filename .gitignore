@@ -1,0 +1,25 @@
+# ============================================================================
+# Repository upload policy — only the following are tracked:
+#   asset/ (all)  ·  CORE_2026_CVPR/  ·  datasets/README.md
+#   pretrained/ (empty)  ·  Vicuna-7b/ (empty)  ·  README.md
+# ============================================================================
+
+# Local working folder — not for release
+archive/
+
+# datasets/: ship the README only; the actual images/JSON are downloaded separately
+datasets/*
+!datasets/README.md
+
+# pretrained/: ship an empty folder; download the MiniGPT-4 weights into it
+pretrained/*
+!pretrained/.gitkeep
+
+# Vicuna-7b/: ship an empty folder; download the Vicuna-7B weights into it
+Vicuna-7b/*
+!Vicuna-7b/.gitkeep
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*~

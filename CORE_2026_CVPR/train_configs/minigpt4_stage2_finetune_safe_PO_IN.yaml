@@ -1,0 +1,50 @@
+model:
+  arch: mini_gpt4
+  model_type: pretrain_vicuna0
+
+  max_txt_len: 160
+  end_sym: "###"
+  prompt_path: "prompts/alignment.txt"
+  prompt_template: '###Human: {} ###Assistant: '
+
+datasets:
+  privacy_preference_optimization_imagenet_r:
+    batch_size: 2
+    vis_processor:
+      train:
+        name: "blip2_image_train"
+        image_size: 224
+    text_processor:
+      train:
+        name: "blip_caption"
+
+run:
+  task: image_text_pretrain
+  # optimizer
+  lr_sched: "linear_warmup_cosine_lr"
+  init_lr: 12e-4 # 1st try 12e-4 // 2nd try 5e-4 // 3rd try 1e-6  
+  min_lr: 4e-6
+  warmup_lr: 5e-4
+
+  weight_decay: 0.05
+  max_epoch: 2
+  iters_per_epoch: 200
+  batch_size_train: 8
+  batch_size_eval: 12
+  num_workers: 4
+  warmup_steps: 200
+
+  seed: 45
+  output_dir: "output/"
+
+  amp: True
+  resume_ckpt_path: null
+
+  evaluate: False 
+  train_splits: ["train"]
+
+  device: "cuda"
+  world_size: 2
+  dist_url: "env://"
+  distributed: True
+
