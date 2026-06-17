@@ -105,6 +105,17 @@ Our model is evaluated with `eval_scripts/core/`. Each safety script is named by
 harmful/unharmful **image** × harmful/unharmful **text** combination (e.g. `HH` =
 harmful image + harmful text).
 
+Evaluation loads model checkpoints from:
+
+```
+minigpt4/output/<RUN_NAME>/<time_step>/checkpoint_*.pth
+minigpt4/output/<RUN_NAME>/cbl/cbl_<time_step>.pt
+```
+
+The provided scripts set `RUN_NAME="CORE"`, matching the default training run. If you
+change the training `run_name`, update `RUN_NAME` in `eval_scripts/core/*.sh`.
+Zero-shot eval uses only the MiniGPT-4 pretrained checkpoint from [§1.3](#13-checkpoints).
+
 **Forget set** — harmful inputs that must be **refused** (`HH`, `HU`, `UH`).
 
 ```bash
@@ -128,7 +139,7 @@ bash eval_scripts/core/ScienceQA_run_eval.sh
 bash eval_scripts/core/SEEDBench_run_eval.sh
 ```
 
-### Zero-shot baseline
+### Zero-shot 
 
 `eval_scripts/zeroshot/` evaluates the **pretrained LVLM only** (no unlearning, no
 CBL/router, `--zero_shot`) on the exact same data. Since the pretrained model does not
@@ -207,3 +218,4 @@ Figures are drawn by the scripts in `visualization/` (`plot_timestep_metrics.py`
 | LVLM | — | `metric_lvlm_benchmark/` |
 
 > Note: refusal classification (`calculate_metric_crr.py`) only processes `HH` mode.
+
