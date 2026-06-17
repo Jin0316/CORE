@@ -97,6 +97,12 @@ under `minigpt4/output/CORE/`.
 2. **Main** (`train.py`) — fine-tune the mixture of refusers (router + set of refusers) with the trained CBL.
 3. **Router** (`train_router.py`) — finetune the refusal router.  
 
+The default `run_name` is `CORE` in `train_scripts/train_cl.py`, so trained model
+checkpoints are saved under `minigpt4/output/CORE/<time_step>/` and CBL checkpoints
+under `minigpt4/output/CORE/cbl/`. The first time step starts from `INIT_CKPT_PATH`
+in `train_scripts/train_cl_config.py`; later steps automatically load the latest
+checkpoint from the previous time step.
+
 ---
 
 ## 3. Eval
