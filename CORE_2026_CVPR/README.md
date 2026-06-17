@@ -75,10 +75,10 @@ under `minigpt4/output/CORE/`.
 
 **Task sequence** (defined in `train_cl.py`) — all 16 tasks are unlearning tasks:
 
-- **12 `safe_PO` tasks** — 60 harmful concepts across 6 categories (sexual, violence,
-  illegal activity, weapons, privacy, hate/discrimination), grouped into 5 keywords per
+- **12 `safe_PO` tasks** — 60 harmful concepts across six safety types (sexual, violence,
+  illegal activity, weapons, privacy, hate/discrimination), grouped into five categories per
   task.
-- **4 `safe_PO_IN` tasks** — ImageNet-R concepts (20 keywords per task).
+- **4 `safe_PO_IN` tasks** — ImageNet-R concepts (20 categories per task).
 
 **Per-step stages** (backends in `train_scripts/backends/`):
 
