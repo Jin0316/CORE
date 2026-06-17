@@ -68,8 +68,7 @@ Vicuna-7b/
   walkthrough: environment setup (Docker / conda), the continual-unlearning training
   pipeline, evaluation scripts, and metric computation.
 - **[`datasets/README.md`](datasets/README.md)** — for the dataset layout and the JSON
-  schema (the keys actually consumed) of Safe-Eraser, ImageNet-R, and the Standard VLM
-  benchmarks.
+  schema of Safe-Eraser and ImageNet-R.
 
 Once the datasets and weights are placed as shown above, a typical run is *train →
 evaluate → compute metrics*; see `CORE_2026_CVPR/README.md` for the exact commands.
