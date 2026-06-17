@@ -84,9 +84,8 @@ under `minigpt4/output/CORE/`.
 
 1. **CBL** (`train_CBL.py`) — train the concept bottleneck layer for the step's
    keywords (identify *which* concept combinations characterize the forget category).
-2. **Main** (`train.py`) — fine-tune the LVLM with the trained CBL.
-3. **Router** (`train_router.py`) — train the concept-driven router over the mixture of
-   refusers (from time step 1 onward).
+2. **Main** (`train.py`) — fine-tune the mixture of refusers (router + set of refusers) with the trained CBL.
+3. **Router** (`train_router.py`) — finetune the refusal router.  
 
 ---
 
