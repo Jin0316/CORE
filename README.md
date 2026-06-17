@@ -44,7 +44,7 @@ pretrained/
 └── pretrained_minigpt4_7b_Llama2.pth
 ```
 
-**`Vicuna-7b/`** — the Vicuna-7B (v0) language-model weights the LVLM is built on:
+**`Vicuna-7b/`** — the Vicuna-7B (v0) language-model weights:
 
 The pretrained checkpoint is available on [huggingface](https://huggingface.co/Vision-CAIR/vicuna-7b/tree/main) 
 
