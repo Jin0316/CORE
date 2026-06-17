@@ -2,7 +2,7 @@
 
 # Which Concepts to Forget and How to Refuse?<br>Decomposing Concepts for Continual Unlearning in Large Vision-Language Models
 
-**Hyundong Jin · Dongyoon Han · Eunwoo Kim**
+**Hyundong Jin · wlsgusehd@gmail.com**
 
 [![Conference](https://img.shields.io/badge/CVPR-2026-4b44ce.svg)](https://cvpr.thecvf.com/)
 
