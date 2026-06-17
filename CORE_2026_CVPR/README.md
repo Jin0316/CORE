@@ -34,14 +34,16 @@ components are trained per time step by the three stages described in
 [§2 Train](#2-train).
 
 ---
-
 ## 1. Setup
 
-### 1.1 Docker
+### 1.1 Environment
 
 ```bash
+# Docker
 docker build -t core2026:core CORE26_CVPR
 docker run --gpus all -it -v /path/to/2026_CVPR_CORE:/workspace core2026:core
+# …or Conda
+conda activate core
 ```
 
 ### 1.2 Directory layout (inside the container)
@@ -50,15 +52,23 @@ docker run --gpus all -it -v /path/to/2026_CVPR_CORE:/workspace core2026:core
 /workspace/                  # repo root, mounted into the container
 ├── CORE26_CVPR/             # this code directory (working directory)
 ├── datasets/                # Safe-Eraser, ImageNet-R, Standard_VLM_Benchmarks
-├── pretrained/              # pretrained LVLM (MiniGPT-4) weights
+├── pretrained/              # pretrained_minigpt4_7b_Vicuna.pth
 └── Vicuna-7b/               # Vicuna-7B weights
 ```
 
-### 1.3 Conda
+### 1.3 Checkpoints
 
-```bash
-conda activate core
-```
+Download the two model checkpoints below ([MiniGPT-4 release](https://github.com/Vision-CAIR/MiniGPT-4)).
+Keep the default paths and nothing needs editing; otherwise update the configs listed:
+
+| checkpoint | default path | config to edit if different |
+|------------|--------------|-----------------------------|
+| MiniGPT-4 pretrained `.pth` | `/workspace/pretrained/pretrained_minigpt4_7b_Vicuna.pth` | `train_scripts/train_cl_config.py`, `eval_scripts/eval_cl_new.py`, `eval_scripts/eval_cl_VLM_Bench.py` |
+| Vicuna-7B HuggingFace folder | `/workspace/Vicuna-7b/` | `minigpt4/configs/models/minigpt4_vicuna0.yaml` |
+
+Adjust GPU IDs for your machine: `GPU_DEVICES` / `VISION_DEVICE` in
+`train_scripts/train_cl_config.py` (and `world_size` in `train_configs/*.yaml`), and
+`EVAL_DEVICE` in `eval_scripts/**/*.sh`.
 
 ---
 
