@@ -34,10 +34,10 @@
 The datasets and model weights are **not** included in this repository; place them
 alongside the code as shown above.
 
-**`pretrained/`** — pretrained MiniGPT-4 checkpoints (from
+**`pretrained/`** — pretrained LVLM checkpoint (from
 [MiniGPT-4](https://github.com/vision-cair/minigpt-4)):
 
-The pretrained checkpoint is available on [MiniGPT-4-Vicuna](https://drive.google.com/file/d/1RY9jV0dyqLX-o38LrumkKRh6Jtaop58R/view) for Vicuna and [MiniGPT-4-Llama](https://drive.google.com/file/d/11nAPjEok8eAGGEG1N2vXo3kBLCg0WgUk/view) for Llama based LVLM.
+The pretrained checkpoint is available on [here](https://drive.google.com/file/d/1RY9jV0dyqLX-o38LrumkKRh6Jtaop58R/view) for Vicuna and [here](https://drive.google.com/file/d/11nAPjEok8eAGGEG1N2vXo3kBLCg0WgUk/view) for Llama based LVLM.
 ```
 pretrained/
 ├── pretrained_minigpt4_7b_Vicuna.pth    # used by default (Vicuna backbone)
